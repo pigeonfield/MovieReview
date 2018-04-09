@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
         @categories = Category.all.map{ |c| [c.name, c.id]}
     end
     
+    
     def create
         @movie = current_user.movies.build(movie_params)
         @movie.category_id = params[:category_id]
@@ -27,10 +28,11 @@ class MoviesController < ApplicationController
     end 
     
     def edit
-
+        @categories = Category.all.map{ |c| [c.name, c.id]}
     end
     
     def update
+        @movie.category_id = params[:category_id]       
         if @movie.update(movie_params)
             redirect_to movie_path(@movie)
         else
