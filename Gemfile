@@ -18,6 +18,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'simple_form', '~> 3.5', '>= 3.5.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'paperclip', '~> 6.0'
+gem 'rvm', '~> 1.11', '>= 1.11.3.9'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
