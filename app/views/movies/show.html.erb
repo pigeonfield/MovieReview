@@ -1,15 +1,33 @@
-<h2><%= @movie.title %></h2>
-<h3><%= @movie.director %></h3>
-<h4><%= @movie.category.name %></h4>
-<p><%= @movie.description %></p>
 
-<%= link_to "Back", root_path %>
+<div class="row">
+    <div class="col-md-4">
+        <%= image_tag @movie.movie_img.url(:movie_show), class: "movie-show" %>
+    </div>
+ 
+    <div class="col-md-8">    
+        <h2><%= @movie.title %></h2>
+        <h3><%= @movie.director %></h3>
+        <p><%= @movie.description %></p>
+    </div>
+</div>
 
-<% if user_signed_in? %>
-    <% if @movie.user_id == current_user.id %>
-
-        <%= link_to "Edit", edit_movie_path(@movie) %>
-        <%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" } %>
-
-    <% end %>
-<% end %>
+<div class="row">
+    <div class="col-md-4">
+        
+        <%= render @movie.reviews %>
+        
+        <div>
+            <%= link_to "Add Review", new_movie_review_path(@movie) %>
+        </div>
+    </div>
+</div>    
+        <%= link_to "Back", root_path %>
+        
+        <% if user_signed_in? %>
+            <% if @movie.user_id == current_user.id %>
+        
+                <%= link_to "Edit", edit_movie_path(@movie) %>
+                <%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" } %>
+        
+            <% end %>
+        <% end %>
