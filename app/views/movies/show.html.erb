@@ -4,7 +4,7 @@
         <%= image_tag @movie.movie_img.url(:movie_show), class: "movie-show" %>
     </div>
  
-     <div>
+    
         <div class="col-md-8">  
             <div class="movie-info">
                 <h2 class="movie-title"><%= @movie.title %></h2>
@@ -15,8 +15,8 @@
                 <p class="movie-desc"><%= @movie.description %></p>
             </div>
         </div>
-     </div>    
-</div>
+</div>    
+
 
 <div class="row">
     <div class="col-md-4">
@@ -30,19 +30,20 @@
             </div>
         </div>     
     </div>
-</div>   
-    <div class="links btn-group">
-        <%= link_to "Back", root_path, class: "btn btn-custom" %>
+</div>  
+
+<div class="links btn-group">
+    <%= link_to "Back", root_path, class: "btn btn-custom" %>
         
-        <% if user_signed_in? %>
-            <% if @movie.user_id == current_user.id %>
+    <% if user_signed_in? %>
+           <% if @movie.user_id == current_user.id %>
         
-                <%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-custom" %>
-                <%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom"%>
+            <%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-custom" %>
+            <%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom"%>
         
-            <% end %>
         <% end %>
-    </div>
+    <% end %>
+</div>
   
         
 <script>
